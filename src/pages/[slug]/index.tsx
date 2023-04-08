@@ -1,18 +1,54 @@
 import ClientLayout from "@/layout/ClientLayout";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core'
-
-import { faTwitter, faFacebook, faPinterest, faGithub, faWhatsapp, faInstagram, faGoogle } from '@fortawesome/free-brands-svg-icons'
-import { faEllipsisVertical, faLink, } from '@fortawesome/free-solid-svg-icons'
-import { faUser, faShareFromSquare, faComments, faBookmark } from '@fortawesome/free-regular-svg-icons'
-library.add(faTwitter, faFacebook, faPinterest, faGithub, faWhatsapp, faInstagram, faUser)
-
+import { faCaretDown, faCaretUp, faEllipsisVertical, faFont, faLink, faTextHeight, } from '@fortawesome/free-solid-svg-icons'
+import { faShareFromSquare, faBookmark } from '@fortawesome/free-regular-svg-icons'
+import CommentSystem from "@/components/client/comments";
+import { useEffect, useState } from "react";
+import Aside from "./components/Aside";
 const Content = () => {
+    const [isSticky, setIsSticky] = useState(true);
+    useEffect(() => {
+        const handleScroll = () => {
+            const headerElement: HTMLElement = document.querySelector('.js-header')!;
+            let headerRect: DOMRect = headerElement?.getBoundingClientRect();
+            const contentElement: HTMLElement = document.querySelector('#content')!
+            let commentBoxRect: DOMRect = contentElement?.getBoundingClientRect();
+            commentBoxRect?.bottom >= headerRect?.bottom ? setIsSticky(true) : setIsSticky(false);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [])
+
     return (
         <ClientLayout>
             <section className="px-4 py-6">
                 <div className="container mx-auto max-w-screen-xl">
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-10">
+                    <div className="grid grid-cols-1 gap-2 sm:grid-cols-12">
+                        <div className="sm:col-span-1 text-center">
+                            <div id="content-action" className={isSticky ? 'sticky top-20' : ''}>
+                                <div className="mt-4">
+                                    <button className="text-slate-400">
+                                        <FontAwesomeIcon className="w-10 h-10" icon={faCaretUp} />
+                                    </button>
+                                    <p className=" text-slate-400">+24</p>
+                                    <button className=" text-slate-400">
+                                        <FontAwesomeIcon className="w-10 h-10" icon={faCaretDown} />
+                                    </button>
+                                </div>
+                                <div className="mt-5">
+                                    <button className="text-slate-400">
+                                        <FontAwesomeIcon className="w-6 h-6" icon={faBookmark} />
+                                    </button>
+                                </div>
+                                <div className="mt-5">
+                                    <button className=" text-slate-400">
+                                        <FontAwesomeIcon className="w-6 h-6" icon={faFont} />
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                         <section className="col-span-1 sm:col-span-7">
                             <div className="grid grid-cols-1 gap-4">
                                 <div className="p-4">
@@ -44,10 +80,11 @@ const Content = () => {
 
                                         </div>
                                     </header>
-                                    <section>
-                                        <div className="text-gray-600 mb-4 text-justify">
-                                            <h2 className="text-2xl font-semibold my-5">It’s Been 20 Years Since We Invaded Iraq. I Am Still in the Desert.</h2>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis tempore nostrum non. Fugit tempore ad animi fugiat necessitatibus maiores laudantium quo impedit eum. Numquam facilis consectetur doloremque, obcaecati veritatis dolorum?
+                                    <section id="content">
+                                        <div className="mb-4 text-justify">
+                                            <h2 className="text-2xl font-semibold my-5 text-slate-900">It’s Been 20 Years Since We Invaded Iraq. I Am Still in the Desert.</h2>
+                                            <p className="leading-6 text-slate-800">
+                                                lorem*100Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis tempore nostrum non. Fugit tempore ad animi fugiat necessitatibus maiores laudantium quo impedit eum. Numquam facilis consectetur doloremque, obcaecati veritatis dolorum?
                                                 Veritatis natus error labore quo, ipsum unde culpa, molestiae odit quis delectus reiciendis pariatur, commodi ducimus quibusdam repudiandae. Cumque error nesciunt eius reprehenderit sunt cupiditate magni facilis sint deserunt quos!
                                                 Nam nesciunt pariatur quas! Culpa similique officia veritatis, nisi illum sed qui iste? Ipsam fugiat rerum ullam vero optio repellat, exercitationem magni saepe dolore aut sed asperiores alias minima. Saepe?
                                                 Adipisci vero eius quibusdam quas, accusamus itaque minus rerum voluptate ullam reprehenderit quae iste sint sit, hic asperiores laborum ducimus dignissimos quos magni necessitatibus, consectetur repudiandae aperiam alias eligendi? Molestiae.
@@ -98,56 +135,41 @@ const Content = () => {
                                                 Odit eveniet harum distinctio at cum doloremque vel accusamus delectus quibusdam ex laudantium dolorum vero corporis aliquid, consequuntur quisquam possimus atque, impedit blanditiis. Libero, voluptatum necessitatibus sit commodi esse eos?
                                                 Voluptatum, cum corporis mollitia doloremque et sint omnis necessitatibus. Aliquid, ut cupiditate. Nam tempore eligendi ut, adipisci ea voluptates id et eaque sint at, harum explicabo reiciendis! Autem, nulla expedita!
                                             </p>
-                                            <div className="mt-10">
-                                                <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Software</a>
-                                                <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
-                                                <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
-                                                <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
-                                                <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
-                                            </div>
-                                            <div className="mt-10">
-                                                <div className="col-span-5 flex justify-end">
-                                                    <button className="mr-5">
-                                                        <FontAwesomeIcon icon={faShareFromSquare} />
-                                                    </button>
-                                                    <button className="mr-5">
-                                                        <FontAwesomeIcon icon={faBookmark} />
-                                                    </button>
-                                                    <button>
-                                                        <FontAwesomeIcon icon={faEllipsisVertical} />
-                                                    </button>
-                                                </div>
-                                            </div>
                                         </div>
                                     </section>
+                                    <div className="mt-10">
+                                        <div className="mt-10">
+                                            <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Software</a>
+                                            <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
+                                            <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
+                                            <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
+                                            <a href="#" className="px-5 py-2 text-sm bg-gray-200 rounded-2xl mr-5">Development</a>
+                                        </div>
+                                        <div className="mt-10">
+                                            <div className="col-span-5 flex justify-end">
+                                                <button className="mr-5">
+                                                    <FontAwesomeIcon icon={faShareFromSquare} />
+                                                </button>
+                                                <button className="mr-5">
+                                                    <FontAwesomeIcon icon={faBookmark} />
+                                                </button>
+                                                <button>
+                                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="mt-10">
+                                        <CommentSystem />
+                                    </div>
+
                                 </div>
+
                             </div>
                         </section>
-                        <aside className="col-span-1 sm:col-span-3 border-l">
-                            <div className="sticky top-20">
-                                <div className="p-2 border-b">
-                                    dakldjs
-                                </div>
-                                <div className="p-2">
-                                    <a href="" className="text-gray-500 py-2 px-4 my-1 inline-flex items-center">
-                                        Help
-                                    </a>
-                                    <a href="" className="text-gray-500 py-2 px-4 my-1 inline-flex items-center">
-                                        About
-                                    </a>
-                                    <a href="" className="text-gray-500 py-2 px-4 my-1 inline-flex items-center">
-                                        Blog
-                                    </a>
-                                    <a href="" className="text-gray-500 py-2 px-4 my-1 inline-flex items-center">
-                                        Help
-                                    </a>
-                                    <a href="" className="text-gray-500 py-2 px-4 my-1 inline-flex items-center">
-                                        Privacy
-                                    </a>
-                                    <a href="" className="text-gray-500 py-2 px-4 my-1 inline-flex items-center">
-                                        Terms
-                                    </a>
-                                </div>
+                        <aside className="col-span-1 sm:col-span-4 border-l">
+                            <div className="sticky top-20 h-screen">
+                                <Aside />
                             </div>
                         </aside>
                     </div>

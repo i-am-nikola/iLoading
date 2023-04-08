@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const ProfileDropdown = () => {
@@ -5,7 +7,7 @@ const ProfileDropdown = () => {
     const dropdownRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        function handleHideDropDown (event: Event) {
+        function handleHideDropDown(event: Event) {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
@@ -22,19 +24,18 @@ const ProfileDropdown = () => {
     return (
         <div className="relative" ref={dropdownRef}>
             <button className="flex items-center focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
-                <img src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" className="rounded-full w-6 h-6" />
-
+                <Image src="/images/avatar-generations_prsz.jpeg" alt="avatar" width={24} height={24} sizes="100vw" className="rounded-full" />
             </button>
             {isOpen &&
                 (<div className="absolute right-0 mt-2 w-64 bg-white border-solid border border-gray-200 drop-shadow-lg">
                     <div className="border-b ">
-                        <a href="#" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
-                            <img src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" className="rounded-full w-10 h-10" />
+                        <Link href="/profile/@hongdung" className="px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 flex items-center">
+                            <Image src="https://tecdn.b-cdn.net/img/new/avatars/2.jpg" alt="avatar" width={40} height={40} sizes="100vw" className="rounded-full" />
                             <div className="ml-2">
                                 <p className="text-lg text-slate-700">Nguyen Hong Dung</p>
                                 <p className="text-sm text-slate-500">hongdung@gmail.com</p>
                             </div>
-                        </a>
+                        </Link>
                     </div>
                     <div className="border-b">
                         <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Bài viết của tôi</a>

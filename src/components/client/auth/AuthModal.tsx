@@ -27,7 +27,7 @@ const AuthModal = () => {
                 seIsShowSignUpForm(false)
             }
         });
-    }, [])
+    })
 
     function showSignUpForm(): void {
         seIsShowSignInForm(false);
