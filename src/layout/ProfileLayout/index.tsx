@@ -1,5 +1,5 @@
 import ClientLayout from "@/layout/ClientLayout";
-import { faUserPen } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faUserPen } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -64,8 +64,18 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
             <div className="container mx-auto max-w-screen-xl">
                 <div className="grid grid-cols-1 gap-2 sm:grid-cols-12">
                     <div className="col-span-8">
+                        <div className="mt-5 py-10">
+                            <div className="flex items-center">
+                                <p className="text-4xl mb-3 mr-5">Guodong (Troy) Zhao</p>
+                                <span className="text-sm text-gray-500">1 millions followers</span>
+                            </div>
+                            <button className="h-10 leading-5 text-sm px-5 py-2 bg-sky-500 text-white rounded-full">
+                                <FontAwesomeIcon icon={faCheck} size="sm" className="mr-2" />
+                                Đang theo dõi
+                            </button>
+                        </div>
                         <div className="flex items-center justify-between border-b">
-                            <div className="ml-10 flex items-baseline space-x-4">
+                            <div className="flex items-baseline space-x-4">
                                 {
                                     profileMenuItems.map((menuItem, index) => {
                                         const tab = menuItem.url.split('/').filter(segment => segment !== '')[2];

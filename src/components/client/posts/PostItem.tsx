@@ -3,8 +3,8 @@ import Link from "next/link";
 
 const PostItem = () => {
     return (
-        <div className="border-b p-4 flex flex-col sm:flex-row">
-            <div className="w-full sm:w-3/4 sm:pl-4">
+        <div className="border-b pl-0 p-4 flex flex-col sm:flex-row">
+            <div className="w-full sm:w-3/4 sm:px-4">
                 <Link href="/profile/@hongdung" className="flex items-center gap-4">
                     <Image src="/images/avatar-generations_prsz.jpeg" alt="your-image-alt" width={24} height={24} sizes="100vw " className="rounded-2xl" />
                     <h4 className="text-sm font-medium">Guodong (Troy) Zhao</h4>
