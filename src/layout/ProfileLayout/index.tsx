@@ -69,8 +69,8 @@ const ProfileLayout = ({ children }: { children: React.ReactNode }) => {
                                 <p className="text-4xl mb-3 mr-5">Guodong (Troy) Zhao</p>
                                 <span className="text-sm text-gray-500">1 millions followers</span>
                             </div>
-                            <button className="h-10 leading-5 text-sm px-5 py-2 bg-sky-500 text-white rounded-full">
-                                <FontAwesomeIcon icon={faCheck} size="sm" className="mr-2" />
+                            <button className=" flex items-center h-10 leading-5 text-sm px-5 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-full">
+                                <FontAwesomeIcon icon={faCheck} size="sm" className="mr-2 h-3 w-3 inline" />
                                 Đang theo dõi
                             </button>
                         </div>

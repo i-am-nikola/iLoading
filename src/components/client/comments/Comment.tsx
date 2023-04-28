@@ -14,11 +14,11 @@ const Comment = ({ author, content, replies }: CommentsType) => {
             <div className="flex items-center">
                 <div className="mr-5 w-4">
                     <button className="text-slate-700">
-                        <FontAwesomeIcon icon={faChevronUp} />
+                        <FontAwesomeIcon icon={faChevronUp} size="sm" className="w-4 h-4" />
                     </button>
                     <p className="text-slate-700">12</p>
                     <button className="text-slate-700">
-                        <FontAwesomeIcon icon={faChevronDown} />
+                        <FontAwesomeIcon icon={faChevronDown} size="sm" className="w-4 h-4" />
                     </button>
                 </div>
                 <a href="#" className="mr-2 w-10">
