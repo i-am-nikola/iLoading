@@ -1,15 +1,15 @@
-import PostItem from '@/components/client/posts/PostItem';
+import PostCard from '@/components/client/posts/PostCard';
 import ProfileLayout from '@/layout/ProfileLayout';
 
 const Profile = () => {
     return (
         <ProfileLayout>
             <div className="grid grid-cols-1 gap-4">
-                <PostItem />
-                <PostItem />
-                <PostItem />
-                <PostItem />
-                <PostItem />
+                <PostCard />
+                <PostCard />
+                <PostCard />
+                <PostCard />
+                <PostCard />
             </div>
         </ProfileLayout>
     );

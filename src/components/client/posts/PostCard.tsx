@@ -1,14 +1,18 @@
-import BookmarkPlus from "@/components/icons/BookmarkPlus";
-import { Tooltip } from "@/components/ui";
-import { faCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
-import StatsItem from "./StatsItem";
 import UserPopover from "./UserPopover";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+import StatsItem from "./StatsItem";
+import Link from "next/link";
+import { Tooltip } from "@/components/ui";
+import BookmarkPlus from "@/components/icons/BookmarkPlus";
+import Image from "next/image";
 
-const PostItem = () => {
+const PostCard = () => {
     return (
-        <div className="border-b p-4 flex flex-col sm:flex-row bg-white  rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+        <div className="border-b p-4 bg-white  rounded-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] ">
+            <div className="mb-2">
+                <Image src="https://res.cloudinary.com/practicaldev/image/fetch/s--liw1YOsA--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/ohn4jhk6eykdcex4umst.png" width={650} height={275} alt="dfd" className="w-full h-64 object-cover" />
+            </div>
             <div className="w-full">
                 <div className="flex items-center">
                     <UserPopover />
@@ -61,6 +65,6 @@ const PostItem = () => {
             </div>
         </div>
     );
-};
+}
 
-export default PostItem;
+export default PostCard;

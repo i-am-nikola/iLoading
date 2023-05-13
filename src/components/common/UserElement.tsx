@@ -3,11 +3,12 @@ import Link from "next/link";
 import { StatsItem } from "../client/posts";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import FollowButton from "./FollowButton";
 
 const UserElement = () => {
     return (
         <>
-            <div className="border-b py-2">
+            <div className="border-b py-2 z-10">
                 <div className="flex justify-around items-center">
                     <div className="mr-2">
                         <Link href="/profile/@hongdung" >
@@ -40,10 +41,7 @@ const UserElement = () => {
                 <p className="text-sm text-slate-500">
                     1.5K Followers
                 </p>
-                <button className=" flex items-center h-7 leading-5 text-sm px-3 py-1 bg-sky-500 hover:bg-sky-600 text-white rounded-full">
-                    <FontAwesomeIcon icon={faCheck} size="sm" className="mr-2 h-3 w-3 inline" />
-                    Đã theo dõi
-                </button>
+                <FollowButton isFollowing={false} />
             </div>
         </>
     );

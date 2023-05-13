@@ -1,3 +1,5 @@
+import { faBell, faChartLine, faGear, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -38,19 +40,27 @@ const ProfileDropdown = () => {
                         </Link>
                     </div>
                     <div className="border-b">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Bài viết của tôi</a>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Yêu thích</a>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Đã đọc</a>
+                        <Link href="/dashboard" className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <FontAwesomeIcon icon={faChartLine} size="sm" className="h-5 w-5 mr-3" />
+                            Bảng điều khiển
+                        </Link>
                     </div>
                     <div className="border-b">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Thông báo</a>
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Tin nhắn</a>
+                        <Link href="#" className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <FontAwesomeIcon icon={faBell} size="sm" className="h-5 w-5 mr-3" />
+                            Thông báo</Link>
                     </div>
                     <div className="border-b">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Cài đặt</a>
+                        <Link href="#" className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <FontAwesomeIcon icon={faGear} size="sm" className="h-5 w-5 mr-3" />
+                            Cài đặt
+                        </Link>
                     </div>
                     <div className="border-b">
-                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Đăng xuất</a>
+                        <Link href="#" className="flex px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <FontAwesomeIcon icon={faRightFromBracket} size="sm" className="h-5 w-5 mr-3" />
+                            Đăng xuất
+                        </Link>
                     </div>
                 </div>)}
         </div>

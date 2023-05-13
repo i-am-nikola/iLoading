@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 type PopoverPropsType = {
     children: React.ReactNode
@@ -10,20 +10,10 @@ type PopoverPropsType = {
 const Popover = (props: PopoverPropsType) => {
 
     const targetRef = useRef<HTMLDivElement>(null);
-    let [dimensions, setDimensions] = useState({ width: 0, height: 0 });
     let position = '';
     if (props.position === 'right') {
         position = `left-[100%] top-1/2 -translate-y-1/2`
     }
-
-    useLayoutEffect(() => {
-        if (targetRef.current) {
-            setDimensions({
-                width: targetRef.current['offsetWidth'],
-                height: targetRef.current['offsetHeight']
-            });
-        }
-    }, []);
 
     return (
         <div className="relative" ref={targetRef}>

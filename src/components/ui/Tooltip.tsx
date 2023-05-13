@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tooltip = ({ children, content }: { children: React.ReactNode, content: String }) => {
+const Tooltip = ({ children, content = '' }: { children: React.ReactNode, content?: String }) => {
     return (
         <div className="relative group content-center items-center">
             <div className="flex items-center justify-center">
